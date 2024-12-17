@@ -2,7 +2,7 @@
 
 ### このリポジトリについて
 
-筑波大学で開講されている [情報特別演習](https://www.coins.tsukuba.ac.jp/~yas/coins/ss-2024/) の発表スライドです。
+筑波大学で開講されている [情報特別演習](https://www.coins.tsukuba.ac.jp/~yas/coins/ss-2024/) の発表スライドです。  
 「OCI Runtime Spec に準拠した非特権コンテナランタイムの開発」というタイトルで発表する予定です。
 
 ### Usage
