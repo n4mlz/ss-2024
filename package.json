@@ -1,0 +1,17 @@
+{
+  "name": "ss-2024",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @marp-team/marp-cli -s .",
+    "mmd": "npx mmdc -i figure.mmd -o figure.svg && sed -e 's/&quot;//g' -e 's/>\"create\"</>create</g' figure.svg > figure.svg.tmp && mv figure.svg.tmp figure.svg",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.0.3",
+    "@mermaid-js/mermaid-cli": "^11.4.2"
+  }
+}

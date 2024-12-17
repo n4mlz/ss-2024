@@ -1,0 +1,12 @@
+sequenceDiagram
+    autonumber
+    "create" ->> "create": mkfifo
+    "create" ->> child1: unshare user
+    "create" ->> child1: wait for ready
+    child1 ->> "create": ready
+    "create" ->> child1: newuidmap, newgidmap
+    "create" ->> child1: done
+    child1 ->> child2: fork exec
+    child2 ->> child3: unshare pid and other namespaces
+    child3 ->> child3: pivot_root and setup other namespaces
+    child3 ->> target process: exec the entry point
