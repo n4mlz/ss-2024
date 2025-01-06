@@ -1,0 +1,39 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="463px" height="264px" viewBox="-0.5 -0.5 463 264" content="&lt;mxfile&gt;&lt;diagram name=&quot;Page-1&quot; id=&quot;97916047-d0de-89f5-080d-49f4d83e522f&quot;&gt;5Zddb9owFIZ/TS6Zkjgk4bLla9I2aROaul6axASLYDNjSuivnx2ffIcOpNKtKhco5/XHyXnPEyux0HibzQXerb/xmKSWa8eZhSaW6wZDpP61cALBDoyQCBobyamEBX0mINqgHmhM9o2JkvNU0l1TjDhjJJINDQvBj81pK542s+5wQjrCIsJpoX4aVvoDjeUadMcfVQOfCU3WkDx0ocIljjaJ4AcGGRlnxIxscbENVLlf45gfaxKaWmgsOJfmapuNSap9LTwz62ZnRstSBGHykgXQpCecHqBu5afElBERwx3KU2FJXhLRKx0L3a9omo55ykU+iGJMwlWk9L0UfENqI34UkuVKjxTF5stVngXsXcaGAidUcbcSKO6JCEmymgSVzQnfEilOagqM+gG4DAiiEOJj1U7XBm1d66QPGgaGknLrykp1AW72O+uOOtZ2DCWxQg5Cki75cVoJ97mgBnS9VHFZWlvA6OlJLL7TsKtwmfJoY6QZ1bfVa3OnOy7yvOFEr8uo/KU0W4FvokdYo68n2lO7CE4QnG3Snh9EBFXaPx8Gzu/V8csPzr4+R/Nsf4cHPpAnsUiIbMCoXbmkvYWh0F3HHxaPbK2/Tl9/S7GvwZDvO6eqpjJZEDSzIae1hakYVtWfuNZGzvnbLrYynnS2yokrbbgIQmS/NwiZqq1GoQ4fC/J0UHGYR1eB2INcP5vOfwxiK5nbxedSEn2veTx6QetmXpFD94NweLND9GJ23Q/B7sh+M3ZfPCJqQIsDi979K9OwfSaM3vCV6UWga05Lyk6D6+127ACNph2787fzltOJwDFVLrbm9DWglmCW/27TmLAN/L9vTPfbYaIOXSL+0pWrkL7+iXkFr9vfDe4NvVZh9bVnTqfqcxpN/wA=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="130" y="90" width="200" height="60" rx="9" ry="9" fill="#000000" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/>
+        <rect x="130" y="90" width="200" height="60" rx="9" ry="9" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="18px">
+            <text x="229.5" y="127.5">
+                containerd
+            </text>
+        </g>
+        <path d="M 230 60 L 230 67.5 Q 230 75 230 75.26 L 230 75.53" fill="none" stroke="#23445d" stroke-width="4" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 230 85.53 L 225 75.53 L 235 75.53 Z" fill="#23445d" stroke="#23445d" stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 230 150 L 230 165 Q 230 175 220 175 L 110 175 Q 100 175 100 180.26 L 100 185.53" fill="none" stroke="#23445d" stroke-width="4" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 100 195.53 L 95 185.53 L 105 185.53 Z" fill="#23445d" stroke="#23445d" stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 230 150 L 230 165 Q 230 175 240 175 L 350 175 Q 360 175 360 180.26 L 360 185.53" fill="none" stroke="#23445d" stroke-width="4" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 360 195.53 L 355 185.53 L 365 185.53 Z" fill="#23445d" stroke="#23445d" stroke-width="4" stroke-miterlimit="10" pointer-events="all"/>
+        <rect x="0" y="200" width="200" height="60" rx="9" ry="9" fill="#000000" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/>
+        <rect x="0" y="200" width="200" height="60" rx="9" ry="9" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="18px">
+            <text x="99.5" y="237.5">
+                runc
+            </text>
+        </g>
+        <rect x="260" y="200" width="200" height="60" rx="9" ry="9" fill="#000000" stroke="none" pointer-events="all" transform="translate(2,3)" opacity="0.25"/>
+        <rect x="260" y="200" width="200" height="60" rx="9" ry="9" fill="#10739e" stroke="none" pointer-events="all"/>
+        <g fill="#FFFFFF" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="18px">
+            <text x="359.5" y="237.5">
+                tiny-runc
+            </text>
+        </g>
+        <rect x="130" y="0" width="200" height="60" rx="9" ry="9" fill="#000000" stroke="#000000" pointer-events="all" transform="translate(2,3)" opacity="0.25"/>
+        <rect x="130" y="0" width="200" height="60" rx="9" ry="9" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="18px">
+            <text x="229.5" y="37.5">
+                Docker
+            </text>
+        </g>
+    </g>
+</svg>

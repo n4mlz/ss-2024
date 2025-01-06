@@ -16,10 +16,20 @@ backgroundImage: url('https://marp.app/assets/hero-background.jpg')
 
 - コンテナランタイム自作は簡単である
     - 50行程度で実装するチュートリアルもある
-- しかし, 非特権で動作するコンテナランタイムを自作する例はまだ少ない
+- しかし, 非特権で動作するコンテナランタイムを自作するサンプル実装はまだ少ない
 - 出来るだけシンプルで理解しやすいコードで, 非特権に動作するコンテナランタイムを自作する
 
 ➔ 自身の非特権コンテナへの理解と, コンテナランタイムの自作に関する参考資料としての活用を目指す
+
+---
+
+# コンテナ
+- コンテナ: プロセスを隔離して実行する仕組み
+    - Docker, Podman など
+- 非特権コンテナでは、ホストの root 権限を持たずともコンテナ内で root 権限を持つことができる
+    - 例: coins コンピューティング環境で sudo なしに好きなパッケージやソフトウェアをインストールする
+
+<img src="https://www.docker.com/wp-content/uploads/2023/08/logo-guide-logos-1.svg" width="25%" height="25%">
 
 ---
 
@@ -28,8 +38,19 @@ backgroundImage: url('https://marp.app/assets/hero-background.jpg')
 - リポジトリ: https://github.com/n4mlz/tiny-runc
 - OCI Runtime Spec に準拠した非特権コンテナランタイム
     - OCI Runtime Spec: コンテナランタイムの標準仕様
-    - Docker や Podman が依存する低レベルコンテナランタイムもこれに準拠
 - 既存の低レベルコンテナのデファクトスタンダードである runc を参考に Go 言語で実装
+
+---
+
+## 低レベルコンテナランタイムという概念
+
+<style scoped>section{font-size:32px;}</style>
+
+- Docker は containerd に依存し、containerd は runc に依存
+- runc は OCI Runtime Spec に準拠した "低レベルコンテナランタイム"
+- 今回作成した tiny-runc は名前の通り、この runc に相当するレイヤーのもの
+
+![figure](figure1.drawio.svg)
 
 ---
 
@@ -53,16 +74,12 @@ backgroundImage: url('https://marp.app/assets/hero-background.jpg')
 
 - <span style="font-size: 35px">5 つの原則: OCI Runtime Spec の定める [Standard Containers](https://github.com/opencontainers/runtime-spec/blob/main/principles.md)</span>
     <span style="font-size: 30px">
-    1. Standard operations
-    標準化されたコンテナの基本的な操作が行えること
-    2. Content-agnostic
-    コンテナの中身に関係なく, 同じ操作が同じ影響を与えること
-    3. Infrastructure-agnostic
-    インフラに関わらず同じように操作を行えること
-    4. Designed for automation
-    自動化を前提に設計されていること
-    5. Industrial-grade delivery
-    商用環境での利用に耐えうる信頼性を持つこと
+    1. 標準化されたコンテナの基本的な操作が行えること
+    2. コンテナの中身に関係なく, 同じ操作が同じ影響を与えること
+    3. インフラや環境に関わらず同じように操作を行えること
+    4. 自動化を前提に設計されていること
+    5. 商用環境での利用に耐えうる信頼性を持つこと
+    </span>
 
 ---
 
@@ -82,6 +99,7 @@ tiny-runc ではこう解決しました
 
 - `unshare` システムコールを発行できない
     - `CAP_SYS_ADMIN` ケーパビリティが必要
+        - ケーパビリティ: 何らかの機能を実行する権限
 - 非特権環境では, 特権環境での機能が使えない
     - 例: ホスト名の設定, ファイルシステムのマウント
     - こちらもケーパビリティの不足が原因
@@ -113,7 +131,7 @@ tiny-runc ではこう解決しました
 
 # tiny-runc の実際の処理の流れ
 
-<img src="figure.svg" width="95%" height="95%">
+<img src="figure2.svg" width="95%" height="95%">
 
 ---
 
@@ -131,6 +149,6 @@ tiny-runc ではこう解決しました
 
 # まとめ
 
-- OCI Runtime Spec に準拠した非特権コンテナランタイムを開発した
+- OCI Runtime Spec の一部に準拠した非特権コンテナランタイムを開発した
 - コンテナランタイムの自作に関する参考資料としての活用を目指し、シンプルで理解しやすいコードで実装した
-- 非特権に動作し、Standard Containers の 5 つの原則をある程度実現するランタイムを開発できた
+- 複数プロセスに分けて段階的に権限を得ることで、非特権環境での動作を実現した
