@@ -15,9 +15,11 @@ backgroundImage: url('https://marp.app/assets/hero-background.jpg')
 
 # 動機
 
+<style scoped>section{font-size:32px;}</style>
+
 - コンテナランタイム自作は簡単である
     - 50行程度で実装するチュートリアルもある
-- coins コンピューティング環境で動かせたら楽しそう
+- coins コンピューティング環境で自作コンテナを動かせたら楽しそう
 - しかし, 非特権で動作するコンテナランタイムを自作するサンプル実装はまだ少ない
 - 出来るだけシンプルで理解しやすいコードで, 非特権に動作するコンテナランタイムを自作する
 
