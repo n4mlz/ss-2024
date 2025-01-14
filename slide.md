@@ -9,6 +9,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.jpg')
 <!-- _class: lead -->
 # OCI Runtime Spec に準拠した
 # 非特権コンテナランタイムの開発
+### 情報科学類2年 川崎晃太朗
 
 ---
 
@@ -16,6 +17,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.jpg')
 
 - コンテナランタイム自作は簡単である
     - 50行程度で実装するチュートリアルもある
+- coins コンピューティング環境で動かせたら楽しそう
 - しかし, 非特権で動作するコンテナランタイムを自作するサンプル実装はまだ少ない
 - 出来るだけシンプルで理解しやすいコードで, 非特権に動作するコンテナランタイムを自作する
 
@@ -27,9 +29,11 @@ backgroundImage: url('https://marp.app/assets/hero-background.jpg')
 - コンテナ: プロセスを隔離して実行する仕組み
     - Docker, Podman など
 - 非特権コンテナでは、ホストの root 権限を持たずともコンテナ内で root 権限を持つことができる
-    - 例: coins コンピューティング環境で sudo なしに好きなパッケージやソフトウェアをインストールする
+    <!-- - 例: coins コンピューティング環境で sudo なしに好きなパッケージやソフトウェアをインストールする -->
+    - 例: coins コンピューティング環境で root 権限を持ったコンテナを起動する
+    `podman run -it ubuntu bash`
 
-<img src="https://www.docker.com/wp-content/uploads/2023/08/logo-guide-logos-1.svg" width="25%" height="25%">
+<img src="https://www.docker.com/wp-content/uploads/2023/08/logo-guide-logos-1.svg" width="15%" height="15%">
 
 ---
 
@@ -38,7 +42,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.jpg')
 - リポジトリ: https://github.com/n4mlz/tiny-runc
 - OCI Runtime Spec に準拠した非特権コンテナランタイム
     - OCI Runtime Spec: コンテナランタイムの標準仕様
-- 既存の低レベルコンテナのデファクトスタンダードである runc を参考に Go 言語で実装
+- 既存の低レベルコンテナのデファクトスタンダードである runc を参考に Go 言語で実装 (約1000行)
 
 ---
 
@@ -49,6 +53,9 @@ backgroundImage: url('https://marp.app/assets/hero-background.jpg')
 - Docker は containerd に依存し、containerd は runc に依存
 - runc は OCI Runtime Spec に準拠した "低レベルコンテナランタイム"
 - 今回作成した tiny-runc は名前の通り、この runc に相当するレイヤーのもの
+
+<!-- 高レベルコンテナ: Docker, Podman など
+低レベルコンテナ: runc, tiny-runc など -->
 
 ![figure](figure1.drawio.svg)
 
@@ -98,8 +105,7 @@ tiny-runc ではこう解決しました
 # 非特権で困ること
 
 - `unshare` システムコールを発行できない
-    - `CAP_SYS_ADMIN` ケーパビリティが必要
-        - ケーパビリティ: 何らかの機能を実行する権限
+    - `CAP_SYS_ADMIN` ケーパビリティ (権限) が必要
 - 非特権環境では, 特権環境での機能が使えない
     - 例: ホスト名の設定, ファイルシステムのマウント
     - こちらもケーパビリティの不足が原因
